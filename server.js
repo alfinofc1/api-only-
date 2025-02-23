@@ -659,37 +659,16 @@ app.get('/api/ai/docter', async (req, res) => {
     }
 });
 
-app.get('/api/ai/docter', async (req, res) => {
-    const query = req.query.q || "apa itu dosa";
-    try {
-        const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/naw?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "ALFINOFC", result: true, message: "docter AI", data: formatParagraph(data?.data) });
+app.get('/api/gunung', async (req, res) => {
+   
+        const { data } = await axios.get(`https://indonesia-public-static-api.vercel.app/api/volcanoes`);
+        res.json({ creator: "ALFINOFC", result: true, message: "muslim AI", data: formatParagraph(data?.data) });
     } catch (error) {
-        console.error('Error calling docter API:', error);
-        res.status(500).json({ creator: "ALFINOFC", result: false, message: "docter bermasalah." });
+        console.error('Error calling muslimAI API:', error);
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "muslimAI bermasalah." });
     }
 });
 
-app.get('/api/ai/pencarian', async (req, res) => {
-    const query = req.query.q || "apa itu dosa";
-    try {
-        const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/naw?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "ALFINOFC", result: true, message: "pencarian  AI", data: formatParagraph(data?.data) });
-    } catch (error) {
-        console.error('Error calling docter API:', error);
-        res.status(500).json({ creator: "ALFINOFC", result: false, message: "pencarian bermasalah." });
-    }
-});
-
-app.get('/api/antara-news/terkini', async (req, res) => {
-    try {
-        const { data } = await axios.get(`https://berita-indo-api-next.vercel.app/api/antara-news/terkini`);
-        res.json({ creator: "ALFINOFC", result: true, message: "berita", data: formatParagraph(data?.data) });
-    } catch (error) {
-        console.error('Error calling berita API:', error);
-        res.status(500).json({ creator: "ALFINOFC", result: false, message: "berita bermasalah." });
-    }
-});
 
 
 const storage = multer.diskStorage({
