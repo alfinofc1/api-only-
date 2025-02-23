@@ -619,7 +619,7 @@ app.get('/api/ai/dukun', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/dukun?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "esia AI", data: formatParagraph(data?.data) });
+        res.json({ creator: "WANZOFC TECH", result: true, message: "dukun AI", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling dukun AI API:', error);
         res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "dukun AI bermasalah." });
@@ -630,10 +630,54 @@ app.get('/api/ai/tukam', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/latukam?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "esia AI", data: formatParagraph(data?.data) });
+        res.json({ creator: "WANZOFC TECH", result: true, message: "tukam AI", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling tukam AI API:', error);
         res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "tukam AI bermasalah." });
+    }
+});
+
+app.get('/api/ai/muslimin', async (req, res) => {
+    const query = req.query.q || "apa itu dosa";
+    try {
+        const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/muslimai?query=${encodeURIComponent(query)}`);
+        res.json({ creator: "WANZOFC TECH", result: true, message: "muslim AI", data: formatParagraph(data?.data) });
+    } catch (error) {
+        console.error('Error calling muslimAI API:', error);
+        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "muslimAI bermasalah." });
+    }
+});
+
+app.get('/api/ai/docter', async (req, res) => {
+    const query = req.query.q || "apa itu dosa";
+    try {
+        const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/naw?content=${encodeURIComponent(query)}`);
+        res.json({ creator: "WANZOFC TECH", result: true, message: "docter AI", data: formatParagraph(data?.data) });
+    } catch (error) {
+        console.error('Error calling docter API:', error);
+        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "docter bermasalah." });
+    }
+});
+
+app.get('/api/ai/docter', async (req, res) => {
+    const query = req.query.q || "apa itu dosa";
+    try {
+        const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/naw?content=${encodeURIComponent(query)}`);
+        res.json({ creator: "WANZOFC TECH", result: true, message: "docter AI", data: formatParagraph(data?.data) });
+    } catch (error) {
+        console.error('Error calling docter API:', error);
+        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "docter bermasalah." });
+    }
+});
+
+app.get('/api/ai/pencarian', async (req, res) => {
+    const query = req.query.q || "apa itu dosa";
+    try {
+        const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/naw?content=${encodeURIComponent(query)}`);
+        res.json({ creator: "WANZOFC TECH", result: true, message: "pencarian  AI", data: formatParagraph(data?.data) });
+    } catch (error) {
+        console.error('Error calling docter API:', error);
+        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "pencarian bermasalah." });
     }
 });
 
