@@ -659,7 +659,7 @@ app.get('/api/ai/docter', async (req, res) => {
     }
 });
 
-app.get('/api/happymod', async (req, res) => {
+app.get('/api/apk/happymod', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/apk/happymod?search=${encodeURIComponent(query)}`);
@@ -669,8 +669,6 @@ app.get('/api/happymod', async (req, res) => {
         res.status(500).json({ creator: "ALFINOFC", result: false, message: "docter bermasalah." });
     }
 });
-
-
 
 
 const storage = multer.diskStorage({
