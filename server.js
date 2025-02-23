@@ -660,7 +660,7 @@ app.get('/api/ai/docter', async (req, res) => {
 });
 
 app.get('/api/gunung', async (req, res) => {
-   
+   try {
         const { data } = await axios.get(`https://indonesia-public-static-api.vercel.app/api/volcanoes`);
         res.json({ creator: "ALFINOFC", result: true, message: "muslim AI", data: formatParagraph(data?.data) });
     } catch (error) {
