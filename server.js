@@ -683,7 +683,7 @@ app.get('/api/ai/pencarian', async (req, res) => {
 
 app.get('/api/antara-news/terkini', async (req, res) => {
     try {
-        const { data } = await axios.get(`https://berita-indo-api-next.vercel.app/api/antara-news/terkini}`);
+        const { data } = await axios.get(`https://berita-indo-api-next.vercel.app/api/antara-news/terkini`);
         res.json({ creator: "ALFINOFC", result: true, message: "berita", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling berita API:', error);
