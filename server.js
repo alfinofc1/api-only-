@@ -648,25 +648,14 @@ app.get('/api/ai/muslimin', async (req, res) => {
     }
 });
 
-app.get('/api/ai/docter', async (req, res) => {
-    const query = req.query.q || "apa itu dosa";
-    try {
-        const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/naw?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "ALFINOFC", result: true, message: "docter AI", data: formatParagraph(data?.data) });
-    } catch (error) {
-        console.error('Error calling docter API:', error);
-        res.status(500).json({ creator: "ALFINOFC", result: false, message: "docter bermasalah." });
-    }
-});
-
 app.get('/api/apk/happymod', async (req, res) => {
-    const query = req.query.q || "apa itu dosa";
+    const apk = req.apk.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/apk/happymod?search=${encodeURIComponent(query)}`);
-        res.json({ creator: "ALFINOFC", result: true, message: "docter AI", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "happymod", data: formatParagraph(data?.data) });
     } catch (error) {
-        console.error('Error calling docter API:', error);
-        res.status(500).json({ creator: "ALFINOFC", result: false, message: "docter bermasalah." });
+        console.error('Error calling happymod API:', error);
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "happymodbermasalah." });
     }
 });
 
