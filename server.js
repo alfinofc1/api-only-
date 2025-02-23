@@ -660,15 +660,15 @@ app.get('/api/ai/docter', async (req, res) => {
 });
 
 app.get('/api/gunung', async (req, res) => {
-   try {
+    try {
         const { data } = await axios.get(`https://indonesia-public-static-api.vercel.app/api/volcanoes`);
-        res.json({ creator: "ALFINOFC", result: true, message: "muslim AI", data: formatParagraph(data?.data) });
+        console.log('Berita - Kompas request completed.');
+        res.json({ founder: FOUNDER, company: COMPANY, status: true, message: "Berita - Kompas", data: data });
     } catch (error) {
-        console.error('Error calling muslimAI API:', error);
-        res.status(500).json({ creator: "ALFINOFC", result: false, message: "muslimAI bermasalah." });
+        console.error("Berita - Kompas error:", error);
+        res.status(500).json({ founder: FOUNDER, company: COMPANY, status: false, message: "Berita - Kompas bermasalah.", error: error.message });
     }
 });
-
 
 
 const storage = multer.diskStorage({
