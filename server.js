@@ -22,9 +22,9 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDefinition = {
     openapi: '3.0.0',
     info: {
-        title: 'WANZOFC TECH API ðŸ”¥',
+        title: 'ALFINOFC API ðŸ”¥',
         version: '1.0.0',
-        description: 'Dokumentasi API WANZOFC TECH.',
+        description: 'Dokumentasi API ALFINOFC.',
     },
     servers: [
         {
@@ -128,13 +128,13 @@ app.get('/api/ai/gpt3', async (req, res) => {
     try {
         const prompt = req.query.prompt;
         const content = req.query.content;
-        if (!prompt || !content) return res.status(400).json({ creator: "WANZOFC TECH", result: false, message: "Harap masukkan parameter prompt dan content!" });
+        if (!prompt || !content) return res.status(400).json({ creator: "ALFINOFC", result: false, message: "Harap masukkan parameter prompt dan content!" });
 
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/gpt3?prompt=${encodeURIComponent(prompt)}&content=${encodeURIComponent(content)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "GPT-3 AI Response", data: data });
+        res.json({ creator: "ALFINOFC", result: true, message: "GPT-3 AI Response", data: data });
     } catch (error) {
         console.error("Error in /api/ai/gpt3:", error); // Log error
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "Gagal mendapatkan respons dari GPT-3 AI." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "Gagal mendapatkan respons dari GPT-3 AI." });
     }
 });
 
@@ -192,13 +192,13 @@ app.get('/api/ai/deepseek-chat', async (req, res) => {
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/deepseek-llm-67b-chat?content=${encodeURIComponent(query)}`);
         res.json
-           ({ creator: "WANZOFC TECH",
+           ({ creator: "ALFINOFC",
              result: true, message: "Gemini Pro AI",
              data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling Gemini Pro API:', error);
         res.status(500).json
-            ({ creator: "WANZOFC TECH",
+            ({ creator: "ALFINOFC",
               result: false, 
               message: "Gemini Pro bermasalah." });
     }
@@ -258,13 +258,13 @@ app.get('/api/ai/gemini-pro', async (req, res) => {
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/gemini-pro?content=${encodeURIComponent(query)}`);
         res.json
-           ({ creator: "WANZOFC TECH",
+           ({ creator: "ALFINOFC",
              result: true, message: "Gemini Pro AI",
              data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling Gemini Pro API:', error);
         res.status(500).json
-            ({ creator: "WANZOFC TECH",
+            ({ creator: "ALFINOFC",
               result: false, 
               message: "Gemini Pro bermasalah." });
     }
@@ -323,10 +323,10 @@ app.get('/api/ai/meta-llama', async (req, res) => {
     const query = req.query.content || "hai";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/meta-llama-33-70B-instruct-turbo?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "Meta Llama", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "Meta Llama", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling Meta Llama API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "Meta Llama bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "Meta Llama bermasalah." });
     }
 });
 
@@ -383,10 +383,10 @@ app.get('/api/ai/dbrx-instruct', async (req, res) => {
     const query = req.query.content || "hai";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/dbrx-instruct?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "DBRX Instruct", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "DBRX Instruct", data: formatParagraph(data?.data) });
     } catch (error) {
          console.error('Error calling DBRX Instruct API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "DBRX Instruct bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "DBRX Instruct bermasalah." });
     }
 });
 /**
@@ -441,13 +441,13 @@ app.get('/api/ai/dbrx-instruct', async (req, res) => {
 app.get('/api/ai/khodam', async (req, res) => {
     try {
         const content = req.query.content;
-        if (!content) return res.status(400).json({ creator: "WANZOFC TECH", result: false, message: "Harap masukkan parameter content!" });
+        if (!content) return res.status(400).json({ creator: "ALFINOFC", result: false, message: "Harap masukkan parameter content!" });
 
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/dukun?content=${encodeURIComponent(content)}`);
         res.json(data);
     } catch (error) {
         console.error("Error in /api/ai/khodam:", error); // Log error
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "Gagal mengambil data Khodam AI." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "Gagal mengambil data Khodam AI." });
     }
 });
 
@@ -504,10 +504,10 @@ app.get('/api/ai/deepseek-r1', async (req, res) => {
     const query = req.query.content || "hai";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/deepseek-r1?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "Deepseek R1", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "Deepseek R1", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling Deepseek R1 API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "Deepseek R1 bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "Deepseek R1 bermasalah." });
     }
 });
 
@@ -564,10 +564,10 @@ app.get('/api/gita', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/gita?q=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "Gita AI", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "Gita AI", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling Gita AI API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "Gita AI bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "Gita AI bermasalah." });
     }
 });
 
@@ -575,10 +575,10 @@ app.get('/api/ai/nous-hermes', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/nous-hermes?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "hermes", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "hermes", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling Gita AI API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "hermes bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "hermes bermasalah." });
     }
 });
 
@@ -586,10 +586,10 @@ app.get('/api/ai/joko', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/joko?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "joko AI", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "joko AI", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling Gita AI API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "joko AI bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "joko AI bermasalah." });
     }
 });
 
@@ -597,10 +597,10 @@ app.get('/api/ai/brat', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/bard?query=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "brat AI", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "brat AI", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling brat AI API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "Brat AI bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "Brat AI bermasalah." });
     }
 });
 
@@ -608,10 +608,10 @@ app.get('/api/ai/esia', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/esia?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "esia AI", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "esia AI", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling esia AI API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "esia AI bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "esia AI bermasalah." });
     }
 });
 
@@ -619,10 +619,10 @@ app.get('/api/ai/dukun', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/dukun?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "dukun AI", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "dukun AI", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling dukun AI API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "dukun AI bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "dukun AI bermasalah." });
     }
 });
 
@@ -630,10 +630,10 @@ app.get('/api/ai/tukam', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/latukam?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "tukam AI", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "tukam AI", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling tukam AI API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "tukam AI bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "tukam AI bermasalah." });
     }
 });
 
@@ -641,10 +641,10 @@ app.get('/api/ai/muslimin', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/muslimai?query=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "muslim AI", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "muslim AI", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling muslimAI API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "muslimAI bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "muslimAI bermasalah." });
     }
 });
 
@@ -652,10 +652,10 @@ app.get('/api/ai/docter', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/naw?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "docter AI", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "docter AI", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling docter API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "docter bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "docter bermasalah." });
     }
 });
 
@@ -663,10 +663,10 @@ app.get('/api/ai/docter', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/naw?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "docter AI", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "docter AI", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling docter API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "docter bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "docter bermasalah." });
     }
 });
 
@@ -674,10 +674,10 @@ app.get('/api/ai/pencarian', async (req, res) => {
     const query = req.query.q || "apa itu dosa";
     try {
         const { data } = await axios.get(`https://api.siputzx.my.id/api/ai/naw?content=${encodeURIComponent(query)}`);
-        res.json({ creator: "WANZOFC TECH", result: true, message: "pencarian  AI", data: formatParagraph(data?.data) });
+        res.json({ creator: "ALFINOFC", result: true, message: "pencarian  AI", data: formatParagraph(data?.data) });
     } catch (error) {
         console.error('Error calling docter API:', error);
-        res.status(500).json({ creator: "WANZOFC TECH", result: false, message: "pencarian bermasalah." });
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "pencarian bermasalah." });
     }
 });
 
