@@ -659,16 +659,18 @@ app.get('/api/ai/docter', async (req, res) => {
     }
 });
 
-app.get('/api/gunung', async (req, res) => {
+app.get('/api/happymod', async (req, res) => {
+    const query = req.query.q || "apa itu dosa";
     try {
-        const { data } = await axios.get(`https://indonesia-public-static-api.vercel.app/api/volcanoes`);
-        console.log('Berita - Kompas request completed.');
-        res.json({ founder: FOUNDER, company: COMPANY, status: true, message: "Berita - Kompas", data: data });
+        const { data } = await axios.get(`https://api.siputzx.my.id/api/apk/happymod?search=${encodeURIComponent(query)}`);
+        res.json({ creator: "ALFINOFC", result: true, message: "docter AI", data: formatParagraph(data?.data) });
     } catch (error) {
-        console.error("Berita - Kompas error:", error);
-        res.status(500).json({ founder: FOUNDER, company: COMPANY, status: false, message: "Berita - Kompas bermasalah.", error: error.message });
+        console.error('Error calling docter API:', error);
+        res.status(500).json({ creator: "ALFINOFC", result: false, message: "docter bermasalah." });
     }
 });
+
+
 
 
 const storage = multer.diskStorage({
